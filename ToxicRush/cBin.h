@@ -6,7 +6,6 @@ class cBin :
 {
 public:
 	cBin();
-	void update(double deltaTime);
 	~cBin();
 };
 #endif

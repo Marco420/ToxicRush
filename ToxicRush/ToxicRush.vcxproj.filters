@@ -33,9 +33,6 @@
     <ClInclude Include="cSDL2WNDMgr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cHighScore.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="cFont.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -63,9 +60,6 @@
     <ClInclude Include="cGameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cTileMap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="cEnemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -82,6 +76,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cPlayerBullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cHighScoreTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -102,9 +99,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cSDL2WNDMgr.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cHighScore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cFont.cpp">
@@ -131,9 +125,6 @@
     <ClCompile Include="cGameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cTileMap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cEnemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -150,6 +141,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cPlayerBullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cHighScoreTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

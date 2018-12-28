@@ -92,7 +92,7 @@ void cPlayer::Jump()
 void cPlayer::Die()
 {
 	
- 	isDead = true;
+ 
 	
 }
 

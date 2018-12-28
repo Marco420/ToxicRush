@@ -1,21 +1,21 @@
-#include "cHighScore.h"
+#include "cHighScoreTable.h"
 #include <iostream>
 #include <fstream>
 #include <algorithm>
 #include <string>
 
 
-cHighScore::cHighScore()
+cHighScoreTable::cHighScoreTable()
 {
 
 }
 
-cHighScore::cHighScore(int maxSize)
+cHighScoreTable::cHighScoreTable(int maxSize)
 {
 	this->MAX_SIZE = maxSize;
 }
 
-bool cHighScore::loadFromFile(string highScoreFile)
+bool cHighScoreTable::loadFromFile(string highScoreFile)
 {
 	ifstream file;
 	string aName;
@@ -24,9 +24,14 @@ bool cHighScore::loadFromFile(string highScoreFile)
 
 	file.open(highScoreFile, ios::binary);
 	if (!file.is_open())
-	{
+	{ 
 		cout << "Error opening file " << highScoreFile << endl;
 		return false;
+	}
+	else
+	{
+		cout << "Opened: " << highScoreFile << endl;
+
 	}
 
 	Item tableEntry;
@@ -44,13 +49,13 @@ bool cHighScore::loadFromFile(string highScoreFile)
 	return true;
 }
 
-bool cHighScore::saveToFile(string highScoreFile)
+bool cHighScoreTable::saveToFile(string highScoreFile)
 {
 	ofstream file;
 	file.open(highScoreFile, ios::binary | ios::out);
 
 	if (!file.is_open())
-	{
+	{ 
 		cout << "Error opening file " << highScoreFile << " for saving to ..." << endl;
 		return false;
 	}
@@ -62,9 +67,11 @@ bool cHighScore::saveToFile(string highScoreFile)
 
 	file.close();
 	return true;
+
+
 }
 
-int  cHighScore::addItem(Item entry)
+int  cHighScoreTable::addItem(Item entry)
 {
 	int row = this->tableEntries.size();
 
@@ -85,20 +92,42 @@ int  cHighScore::addItem(Item entry)
 	}
 }
 
-cHighScore::Item cHighScore::getItem(int row)
+cHighScoreTable::Item cHighScoreTable::getItem(int row)
 {
 	Item tblItem;
-	tblItem.Name = this->tableEntries[row]->Name;
+	tblItem.Name  = this->tableEntries[row]->Name;
 	tblItem.score = this->tableEntries[row]->score;
 	return tblItem;
 }
 
-void cHighScore::clearTable()
+void cHighScoreTable::modifyItem(string name, int score) 
+{
+	for (unsigned int x = 0; x < 5; x++)
+	{
+		if (score > this->tableEntries[x]->score)
+		{
+			/*for (unsigned int y = x + 1; y < 5; y++)
+			{
+				int tempScore = this->tableEntries[y]->score;
+				string tempName = this->tableEntries[y]->Name;
+				this->tableEntries[y]->score = this->tableEntries[y - 1]->score;
+				this->tableEntries[y]->Name = this->tableEntries[y - 1]->Name;
+			}*/
+			
+			this->tableEntries[x]->score = score;
+			this->tableEntries[x]->Name = name;
+			x = 5;
+
+		}
+	}
+}
+
+void cHighScoreTable::clearTable()
 {
 	this->tableEntries.clear();
 }
 
-string cHighScore::convertToString()
+string cHighScoreTable::convertToString()
 {
 	string table = "";
 	for (int tblEntry = 0; tblEntry < (int)this->tableEntries.size(); tblEntry++)
@@ -108,16 +137,16 @@ string cHighScore::convertToString()
 	return table;
 }
 
-int cHighScore::getTableSize()
+int cHighScoreTable::getTableSize()
 {
 	return this->tableSize;
 }
 
-void cHighScore::setTableSize(int theSize)
+void cHighScoreTable::setTableSize(int theSize)
 {
 	this->tableSize = theSize;
 }
 
-cHighScore::~cHighScore()
+cHighScoreTable::~cHighScoreTable()
 {
 }

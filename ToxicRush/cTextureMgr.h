@@ -10,6 +10,7 @@ cTextureMgr.h
 #include "GameConstants.h"
 #include "cTexture.h"
 
+
 class cTextureMgr
 {
 private:

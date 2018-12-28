@@ -9,14 +9,14 @@
 #include "cButton.h"
 #include "cSprite.h"
 #include "cButton.h"
-#include "cHighScore.h"
 #include "cPlayer.h"
+#include "cHighScoreTable.h"
 #include "cGameObject.h"
-#include "cTileMap.h"
 #include "cEnemy.h"
 #include "cCloud.h"
 #include "cBin.h"
 #include "cPickUp.h"
 #include "cPlayerBullet.h"
 #include "cEnemyBullet.h"
+
 

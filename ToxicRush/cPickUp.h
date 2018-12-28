@@ -5,7 +5,7 @@ class cPickUp :
 {
 public:
 	cPickUp();
-	void update(double deltaTime);
+
 	~cPickUp();
 };
 

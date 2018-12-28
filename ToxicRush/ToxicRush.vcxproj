@@ -77,6 +77,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_ttf-2.0.14\include;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_mixer-2.0.1\include;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_image-2.0.1\include;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2-2.0.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_ttf-2.0.14\lib\x86;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_mixer-2.0.1\lib\x86;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_image-2.0.1\lib\x86;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2-2.0.4\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -85,10 +86,14 @@
     </Link>
     <PostBuildEvent>
       <Command>echo copying SDL2.dll to debug directory
-xcopy /Y "$(ProjectDir)Audio\*.*" "$(OutDir)Cards\"
-xcopy /Y "$(ProjectDir)Data\*.*" "$(OutDir)Cards\"
-xcopy /Y "$(ProjectDir)Fonts\*.*" "$(OutDir)Cards\"
-xcopy /Y "$(ProjectDir)Images\*.*" "$(OutDir)Images\"
+xcopy /Y "$(ProjectDir)Audio\*.*" "$(OutDir)Audio\"
+xcopy /Y "$(ProjectDir)Data\*.*" "$(OutDir)Data\"
+xcopy /Y "$(ProjectDir)Fonts\*.*" "$(OutDir)Fonts\"
+xcopy /Y "$(ProjectDir)Images\Bkg\*.*" "$(OutDir)Images\Bkg\"
+xcopy/Y "$(ProjectDir)Images\Player\*.*" "$(OutDir)Images\Player\"
+xcopy /Y "$(ProjectDir)Images\GameTextures\*.*" "$(OutDir)Images\GameTextures\"
+xcopy /Y "$(ProjectDir)Images\Enemies\*.*" "$(OutDir)Images\Enemies\"
+xcopy /Y "$(ProjectDir)Images\PickUps\*.*" "$(OutDir)Images\PickUps\"
 xcopy /Y "SDL2\SDL2-2.0.4\lib\x86\SDL2.dll" "$(OutDir)"
 xcopy /Y "SDL2\SDL2_image-2.0.1\lib\x86\*.dll" "$(OutDir)"
 xcopy /Y "SDL2\SDL2_ttf-2.0.14\lib\x86\*.dll" "$(OutDir)"
@@ -101,9 +106,60 @@ xcopy /Y "SDL2\SDL2_mixer-2.0.1\lib\x86\*.dll" "$(OutDir)"</Command>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_ttf-2.0.14\include;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_mixer-2.0.1\include;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_image-2.0.1\include;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2-2.0.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_ttf-2.0.14\lib\x86;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_mixer-2.0.1\lib\x86;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_image-2.0.1\lib\x86;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2-2.0.4\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo copying SDL2.dll to debug directory
+xcopy /Y "$(ProjectDir)Audio\*.*" "$(OutDir)Audio\"
+xcopy /Y "$(ProjectDir)Images\*.*" "$(OutDir)Images\"
+xcopy /Y "$(ProjectDir)Data\*.*" "$(OutDir)Data\"
+xcopy /Y "$(ProjectDir)Fonts\*.*" "$(OutDir)Fonts\"
+xcopy /Y "SDL2\SDL2-2.0.4\lib\x86\SDL2.dll" "$(OutDir)"
+xcopy /Y "SDL2\SDL2_image-2.0.1\lib\x86\*.dll" "$(OutDir)"
+xcopy /Y "SDL2\SDL2_ttf-2.0.14\lib\x86\*.dll" "$(OutDir)"
+xcopy /Y "SDL2\SDL2_mixer-2.0.1\lib\x86\*.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_ttf-2.0.14\include;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_mixer-2.0.1\include;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_image-2.0.1\include;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2-2.0.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_ttf-2.0.14\lib\x86;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_mixer-2.0.1\lib\x86;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2_image-2.0.1\lib\x86;C:\Users\Marco\source\repos\ToxicRush\ToxicRush\SDL2\SDL2-2.0.4\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo copying SDL2.dll to debug directory
+xcopy /Y "$(ProjectDir)Audio\*.*" "$(OutDir)Audio\"
+xcopy /Y "$(ProjectDir)Data\*.*" "$(OutDir)Data\"
+xcopy /Y "$(ProjectDir)Fonts\*.*" "$(OutDir)Fonts\"
+xcopy /Y "$(ProjectDir)Images\Bkg\*.*" "$(OutDir)Images\Bkg\"
+xcopy/Y "$(ProjectDir)Images\Player\*.*" "$(OutDir)Images\Player\"
+xcopy /Y "$(ProjectDir)Images\GameTextures\*.*" "$(OutDir)Images\GameTextures\"
+xcopy /Y "$(ProjectDir)Images\Enemies\*.*" "$(OutDir)Images\Enemies\"
+xcopy /Y "$(ProjectDir)Images\PickUps\*.*" "$(OutDir)Images\PickUps\"
+xcopy /Y "SDL2\SDL2-2.0.4\lib\x86\SDL2.dll" "$(OutDir)"
+xcopy /Y "SDL2\SDL2_image-2.0.1\lib\x86\*.dll" "$(OutDir)"
+xcopy /Y "SDL2\SDL2_ttf-2.0.14\lib\x86\*.dll" "$(OutDir)"
+xcopy /Y "SDL2\SDL2_mixer-2.0.1\lib\x86\*.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
@@ -122,29 +178,15 @@ xcopy /Y "SDL2\SDL2_mixer-2.0.1\lib\x86\*.dll" "$(OutDir)"</Command>
     </Link>
     <PostBuildEvent>
       <Command>echo copying SDL2.dll to debug directory
-xcopy /Y "$(ProjectDir)Audio\*.*" "$(OutDir)Cards\"
-xcopy /Y "$(ProjectDir)Data\*.*" "$(OutDir)Cards\"
-xcopy /Y "$(ProjectDir)Fonts\*.*" "$(OutDir)Cards\"
+xcopy /Y "$(ProjectDir)Audio\*.*" "$(OutDir)Audio\"
 xcopy /Y "$(ProjectDir)Images\*.*" "$(OutDir)Images\"
+xcopy /Y "$(ProjectDir)Data\*.*" "$(OutDir)Data\"
+xcopy /Y "$(ProjectDir)Fonts\*.*" "$(OutDir)Fonts\"
 xcopy /Y "SDL2\SDL2-2.0.4\lib\x86\SDL2.dll" "$(OutDir)"
 xcopy /Y "SDL2\SDL2_image-2.0.1\lib\x86\*.dll" "$(OutDir)"
 xcopy /Y "SDL2\SDL2_ttf-2.0.14\lib\x86\*.dll" "$(OutDir)"
-xcopy /Y "SDL2\SDL2_mixer-2.0.1\lib\x86\*.dll" "$(OutDir)"</Command>
+xcopy /Y "SDL2\SDL2_mixer-2.0.1\lib\x86\*.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <ConformanceMode>true</ConformanceMode>
-    </ClCompile>
-    <Link>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="cBin.h" />
@@ -157,8 +199,8 @@ xcopy /Y "SDL2\SDL2_mixer-2.0.1\lib\x86\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="cFontMgr.h" />
     <ClInclude Include="cGame.h" />
     <ClInclude Include="cGameObject.h" />
+    <ClInclude Include="cHighScoreTable.h" />
     <ClInclude Include="cPickUp.h" />
-    <ClInclude Include="cHighScore.h" />
     <ClInclude Include="cPlayer.h" />
     <ClInclude Include="cPlayerBullet.h" />
     <ClInclude Include="cSDL2WNDMgr.h" />
@@ -167,7 +209,6 @@ xcopy /Y "SDL2\SDL2_mixer-2.0.1\lib\x86\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="cSprite.h" />
     <ClInclude Include="cTexture.h" />
     <ClInclude Include="cTextureMgr.h" />
-    <ClInclude Include="cTileMap.h" />
     <ClInclude Include="GameConstants.h" />
     <ClInclude Include="ToxicRush.h" />
   </ItemGroup>
@@ -182,8 +223,8 @@ xcopy /Y "SDL2\SDL2_mixer-2.0.1\lib\x86\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="cFontMgr.cpp" />
     <ClCompile Include="cGame.cpp" />
     <ClCompile Include="cGameObject.cpp" />
+    <ClCompile Include="cHighScoreTable.cpp" />
     <ClCompile Include="cPickUp.cpp" />
-    <ClCompile Include="cHighScore.cpp" />
     <ClCompile Include="cPlayer.cpp" />
     <ClCompile Include="cPlayerBullet.cpp" />
     <ClCompile Include="cSDL2WNDMgr.cpp" />
@@ -192,7 +233,6 @@ xcopy /Y "SDL2\SDL2_mixer-2.0.1\lib\x86\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="cSprite.cpp" />
     <ClCompile Include="cTexture.cpp" />
     <ClCompile Include="cTextureMgr.cpp" />
-    <ClCompile Include="cTileMap.cpp" />
     <ClCompile Include="ToxicRushSDL2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

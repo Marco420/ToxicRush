@@ -36,6 +36,19 @@ gameState cButton::update(gameState theCurrentGameState, gameState newGameState,
 	return theCurrentGameState;
 }
 
+controlsType cButton::updateControls(controlsType theCurrentControlType, controlsType controls, SDL_Point theAreaClicked)
+{
+	SDL_Point areaClicked = theAreaClicked;
+	if (areaClicked.x > this->getSpritePos().x && areaClicked.x < (this->getSpritePos().x + this->getSpriteDimensions().w) && areaClicked.y > this->getSpritePos().y && areaClicked.y < (this->getSpritePos().y + this->getSpriteDimensions().h))
+	{
+		this->buttonClickedRC.x = (int)(areaClicked.x - this->getSpritePos().x) / this->getSpriteDimensions().w;
+		this->buttonClickedRC.y = (int)(areaClicked.y - this->getSpritePos().y) / this->getSpriteDimensions().h;
+		this->clicked = true;
+		return controls;
+	}
+	return theCurrentControlType;
+}
+
 bool cButton::getClicked()
 {
 	return this->clicked;

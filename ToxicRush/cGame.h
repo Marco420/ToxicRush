@@ -54,6 +54,9 @@ private:
 	cSprite spriteBkgd;
 	
 	
+	vector<LPCSTR> tableNums;
+	fstream highScoreFile;
+	fstream highScoreNameFile;
 
 	
 	//Texture related variables
@@ -77,13 +80,15 @@ private:
 	vector<LPCSTR> btnTexturesToUse;
 	vector<SDL_Point> btnPos;
 	vector <cButton> theButtons;
-	// Game objects
+	vector<string> alphabet;	// Game objects
 	// Define the elements and there position in/on the array/map
 
 	//int variables
 	int renderWidth, renderHeight;
 	int objectSpeed;
 	int score;
+	bool updateScoreTable = true;
+	vector<int> yScorePos = {250,300,350,400,450};
 	gameState theGameState;
 	btnTypes theBtnType;
 	SDL_Rect pos;
@@ -94,19 +99,17 @@ private:
 	SDL_Point theAreaClicked;
 	//Variables for HighScore Table
 	string strScore;
-	cHighScore theHSTable;
-	int numTableItems;
-
-	bool gameOver;
-	string theHighScore;
-	int theHSTableSize;
-	cTileMap theTileMap;
+	string playerName;
 	bool enemySwitch = false;
-
+	bool gameOver;
+	bool newHighScore = false;
+	vector<int> letters = { 0,0,0 };
+	
 	SDL_Joystick *joyStick;
 
 	//Variables for gameObjects
 	cPlayer player;
+	cSprite highScoreBar;
 	vector <cEnemy*> enemies;
 	vector<cCloud*> theClouds;
 	vector<cSprite*> theLifes;
@@ -114,20 +117,26 @@ private:
 	vector<cGameObject*> walls;
 	cPickUp pickUp;
 	vector<cPlayerBullet*> playerBullets;
+	string theHighScoreTable;
+	int theHSTableSize;
+	cHighScoreTable theHSTable;
+	int numTableItems;
 	
 
 
 
 	//game variables
 	int lifes = 3;
+	int i = 0;
 	bool gunPickUp = false;
 	bool controllerActive = false;
-	unsigned int bullets = 2;
+	int bullets = 2;
 	bool updateScore = false;
 	vector<int> enemySpawnPositions = {2650,4450,9690,7990,8550};
-	vector<int> wallSpawnPositions = { 1024,1524,10300,5750,6450};
+	vector<int> wallSpawnPositions = { 11000,1524,10300,5750,6450};
 	vector<int> binSpawnPositions = { 2205,3600,5150,9150,7200};
-	int pickUpPos = 10500;
+	int pickUpPos = 13500;
+	controlsType controlType = controlsType::keyboard;
 };
 
 #endif

@@ -16,6 +16,7 @@
 // Sound loading library
 #include <SDL_mixer.h>
 
+
 // Maths functions
 #include <math.h>
 constexpr auto PI = 3.14159265;
@@ -57,6 +58,8 @@ typedef struct
 } Player;
 
 
+
+
 inline SDL_Point operator+(SDL_Point const &a, SDL_Point const &b)
 {
 	return SDL_Point{ a.x + b.x , a.y + b.y };
@@ -88,8 +91,10 @@ inline bool operator!=(MapRC const &a, MapRC const &b)
 
 enum class textType { solid, blended, shaded };
 enum class soundType { sfx, music};
-enum class gameState { menu, instructions, playing, end, quit, highscore };
+enum class gameState { menu, settings, playing, end, quit, highscore };
 enum class btnTypes { exit, load, play, save, settings, hscore };
 enum class gameObjectType { enemy, obstacle, pickUp };
+enum class controlsType{controller,keyboard};
 
 #endif
+
