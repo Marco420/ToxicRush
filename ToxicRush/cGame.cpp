@@ -925,11 +925,7 @@ void cGame::update(double deltaTime)
 			bullets = 3;
 		}
 
-		/*if (gameOver == true)
-		{
-			
-			
-		}*/
+		
 
 		for (unsigned int x = 0; x < 5; x++)
 		{
@@ -939,14 +935,14 @@ void cGame::update(double deltaTime)
 			}
 		}
 
-		
-		
-		
 		//Update player and pickup
 		player.Update(deltaTime);
 		pickUp.update(deltaTime);
 		highScoreBar.Update(deltaTime);
 	}
+
+	
+	
 
 	if (theGameState == gameState::highscore)
 	{
@@ -965,7 +961,12 @@ void cGame::update(double deltaTime)
 			theGameState = theButtonMgr->getBtn("play_btn")->update(theGameState, gameState::playing, theAreaClicked);
 		}
 	}
+
 	if (lifes == 0)
+	{
+		theGameState = gameState::end;
+	}
+	/*if (lifes == 0)
 	{
 		theGameState = gameState::end;
 		lifes = 3;
@@ -994,7 +995,7 @@ void cGame::update(double deltaTime)
 		}
 		score = 0;
 		updateScore = true;
-	}
+	}*/
 }
 
 bool cGame::getInput(bool theLoop)
