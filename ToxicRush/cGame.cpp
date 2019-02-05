@@ -685,12 +685,16 @@ void cGame::update()
 
 void cGame::update(double deltaTime)
 {	
-	if (theGameState == gameState::menu )
+	if (theGameState == gameState::menu || theGameState == gameState::end )
 	{
-		theGameState = theButtonMgr->getBtn("play_btn")->update(theGameState, gameState::playing, theAreaClicked);
-		theGameState = theButtonMgr->getBtn("quit_btn")->update(theGameState, gameState::quit, theAreaClicked);
-		theGameState = theButtonMgr->getBtn("settings_btn")->update(theGameState, gameState::settings, theAreaClicked);
-		theGameState = theButtonMgr->getBtn("highScore_btn")->update(theGameState, gameState::highscore, theAreaClicked);
+		if (!newHighScore)
+		{
+			//Button actions
+			theGameState = theButtonMgr->getBtn("quit_btn")->update(theGameState, gameState::quit, theAreaClicked);
+			theGameState = theButtonMgr->getBtn("menu_btn")->update(theGameState, gameState::menu, theAreaClicked);
+			theGameState = theButtonMgr->getBtn("highScore_btn")->update(theGameState, gameState::highscore, theAreaClicked);
+			theGameState = theButtonMgr->getBtn("play_btn")->update(theGameState, gameState::playing, theAreaClicked);
+		}
 	}
 
 	if (theGameState == gameState::settings)
@@ -952,16 +956,41 @@ void cGame::update(double deltaTime)
 
 	if (theGameState == gameState::end)
 	{
-		if (!newHighScore)
-		{
-			//Button actions
-			theGameState = theButtonMgr->getBtn("quit_btn")->update(theGameState, gameState::quit, theAreaClicked);
-			theGameState = theButtonMgr->getBtn("menu_btn")->update(theGameState, gameState::menu, theAreaClicked);
-			theGameState = theButtonMgr->getBtn("highScore_btn")->update(theGameState, gameState::highscore, theAreaClicked);
-			theGameState = theButtonMgr->getBtn("play_btn")->update(theGameState, gameState::playing, theAreaClicked);
-		}
-	}
+		
+			
+				
+				/*vector<cBin*>::iterator binIterator = bins.begin();
+				while (binIterator != bins.end())
+				{
+					binIterator = bins.erase(binIterator);
+				}
 
+				vector<cEnemy*>::iterator enemyIterator = enemies.begin();
+				while (enemyIterator != enemies.end())
+				{
+					enemyIterator = enemies.erase(enemyIterator);
+				}
+
+				vector<cGameObject*>::iterator wallIterator = walls.begin();
+				while (wallIterator != walls.end())
+				{
+					wallIterator = walls.erase(wallIterator);
+				}
+
+				for (int index = 0; index < theLifes.capacity(); index++)
+				{
+					theLifes[index]->setTexture(theTextureMgr->getTexture("life"));
+					theLifes[index]->setSpriteDimensions(theTextureMgr->getTexture("life")->getTWidth(), theTextureMgr->getTexture("life")->getTHeight());
+				}
+				score = 0;
+				updateScore = true;*/
+		
+	}
+	if (theGameState == gameState::end)
+	{
+		
+		
+	}
 	if (lifes == 0)
 	{
 		theGameState = gameState::end;
@@ -969,32 +998,7 @@ void cGame::update(double deltaTime)
 	/*if (lifes == 0)
 	{
 		theGameState = gameState::end;
-		lifes = 3;
-		vector<cBin*>::iterator binIterator = bins.begin();
-		while (binIterator != bins.end())
-		{
-			binIterator = bins.erase(binIterator);
-		}
-
-		vector<cEnemy*>::iterator enemyIterator = enemies.begin();
-		while (enemyIterator != enemies.end())
-		{
-			enemyIterator = enemies.erase(enemyIterator);
-		}
-
-		vector<cGameObject*>::iterator wallIterator = walls.begin();
-		while (wallIterator != walls.end())
-		{
-			wallIterator = walls.erase(wallIterator);
-		}
-
-		for (int index = 0; index < theLifes.capacity(); index++)
-		{
-			theLifes[index]->setTexture(theTextureMgr->getTexture("life"));
-			theLifes[index]->setSpriteDimensions(theTextureMgr->getTexture("life")->getTWidth(), theTextureMgr->getTexture("life")->getTHeight());
-		}
-		score = 0;
-		updateScore = true;
+		
 	}*/
 }
 
